@@ -3,7 +3,7 @@ var router  = express.Router();
 var middleware = require("../middleware/index.js");
 
 // ROOT route, render index page
-router.get("/", middleware.isLoggedIn, function(req, res) {
+router.get("/", function(req, res) {
     res.render("index.ejs");
 });
 

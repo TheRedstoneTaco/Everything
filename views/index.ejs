@@ -19,7 +19,9 @@
   <body>
 
     <span style="display: none" id="userID">
-      <%= currentUser._id %>
+      <% if (currentUser) { %>
+        <%= currentUser._id %>
+      <% } %>
     </span>
 
     <div class="container">
@@ -62,13 +64,7 @@
         </div>
       </nav>
 
-      <div class="contacts-container">
-        <h1 role="title" class="text-center">Contacts</h1>
-        <br>
-        <h3 class="text-center">Search</h3>
-        <input type="text" placeholder="Search..." class="form-control">
-        <div id="contacts"></div>
-      </div>
+      
 
     </div>
 
