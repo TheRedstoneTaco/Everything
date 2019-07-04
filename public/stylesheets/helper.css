@@ -1,0 +1,54 @@
+/*box manipulation*/
+.nobox {
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+/*display*/
+.block {
+    display: block;
+}
+.inline {
+    display: inline;
+}
+break { /* https://codepen.io/hrgdavor/pen/waXEqz */
+  flex-basis: 100%;
+  width: 0px; 
+  height: 0px; 
+  overflow: hidden;
+}
+
+/*sizing*/
+.full {
+    width: 100%;
+    height: 100%;
+}
+.wide {
+    width: 100%;
+}
+.high {
+    height: 100%;
+}
+.w-95 {
+    width: 95%;
+}
+
+/*coloring*/
+.black_text {
+    color: black;
+}
+.white_text {
+    color: white !important;
+}
+.red_text {
+    color: red;
+}
+.blue_text {
+    color: blue;
+}
+
+/*text*/
+.noweight {
+  font-weight: 400 !important;
+}

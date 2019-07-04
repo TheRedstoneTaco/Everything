@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  
+  <head>
+   
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width" />
+    
+    <% if (ebook) { %>
+      <title>
+        <%= ebook.title %>
+      </title>
+    <% } else { %>
+      <title>
+        TheRedstoneTaco
+      </title>
+    <% } %>
+
+    <!--external-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link type="text/css" rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+    <link rel="icon" href="https://cdn0.iconfinder.com/data/icons/symbolicons-junk-food/28/taco-128.png">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/tippy.css">
+    <script type="text/javascript" src="/scripts/tippy.all.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.2/semantic.min.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.2/semantic.min.js"></script>
+    <link rel='stylesheet' type='text/css' href='/stylesheets/helper.css'>
+    <script type="text/javascript" src="/scripts/jquery.lettering.js"></script>
+    <script type="text/javascript" src="/scripts/jquery.textillate.js"></script>
+    <link type="text/css" href="/stylesheets/animate.css" rel="stylesheet"/>
+    <link type="text/css" href="/stylesheets/hover-min.css" rel="stylesheet">
+    <link type="text/css" href="/stylesheets/uikit.min.css" rel="stylesheet">
+    <script type="text/javascript" src="/scripts/uikit.min.js"></script>
+    <script type='text/javascript' src='https://unpkg.com/tippy.js@2.5.3/dist/tippy.all.min.js'></script>
+    
+    <!--internal-->
+    <link rel="stylesheet" type="text/css" href="/stylesheets/R.css">
+    <script type="text/javascript" src="/scripts/R.js"></script>
+    
+  </head>
+  
+  <body>
+
+      <%
+      
+        // determine whether visitor has bought the book or not
+        var bought = currentUser && currentUser._id && ebook && ebook.users && ebook.users.filter(function(user) { return currentUser._id.equals(user)}).length == 1;
+        bought = true;
+        
+        // decide what to put in ebook
+        var optional1 = false;
+      
+      %>
+
+      <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+        
+        <!-- Ebooks "logo" (textual) and link back to ebooks -->
+        <a class="navbar-brand massive inverted red ui button" href="/">
+          <i class='fa fa-home'></i>
+        </a>
+        
+        <!-- Hamburger -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_content" aria-controls="navbar_content" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbar_content">
+          
+          <a class="d-block massive inverted secondary ui button" href="/ebooks">
+            <i class='fa fa-book'></i> Ebooks
+          </a>
+          <div class="m-auto">
+            <h1 class="text-center">
+              <%= ebook.title %>
+            </h1>
+          </div>
+          
+        </div>
+        
+      </nav>
+
+      <div id="navigator_container">
+        <div id="navigator" class="ui secondary pointing menu">
+          <a href="#content_introduction" class="active item">
+            Introduction
+          </a>
+          <a href="#content_Jesus" class="item">
+            Jesus
+          </a>
+          <a href="#content_intelligence" class="item">
+            "Intelligence"
+          </a>
+          <a href="#content_patterns" class="item">
+            Patterns!
+          </a>
+          <a href="#content_avengers" class="item">
+            Avengers: Infinity War
+          </a>
+          <a href="#content_problems" class="item">
+            Problems
+          </a>
+        </div>
+      </div>
+      
+      <div id="content" class="ui container">
+        
+        <!-- Introduction -->
+        <div id="content_introduction">
+          
+          <div class="ui items">
+            <div class="item">
+              <div class="image">
+                <img src="http://clipartix.com/wp-content/uploads/2016/05/Large-wanna-taco-about-it-clip-art.png">
+              </div>
+              <div class="content">
+                <a class="header">Dustin's Research!</a>
+                <div class="meta">
+                  <span>The Official Introduction</span>
+                </div>
+                <div class="description">
+                  <p>
+                    I. Love. Jesus.
+                    <br>
+                    Over time of critical thinking, life changing experiences, interaction with like and
+                    opposite souls, solo and collaborate research, I've acquired information, viewpoints,
+                    strategies, and valuable content.
+                  </p>
+                </div>
+                <div class="extra">
+                  7/12/18 (Originated 5/11/18)
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <hr>
+          
+          <div class="ui icon message">
+            <i class="notched circle loading icon"></i>
+            <div class="content">
+              <div class="header">
+                10 nanoseconds
+              </div>
+              <p>We're filling up with Jesus.</p>
+            </div>
+          </div>
+          
+          <div class="ui two column grid">
+            <div class="column">
+              <div class="ui raised segment">
+                <a class="ui orange ribbon label">"Intelligence"</a> <span>The first.</span>
+                <p>
+                  In "Intelligence", it's Women, Rick and Morty, and Jesus :)
+                </p>
+                <a class="ui blue ribbon label">Patterns!</a> <span>The fanciest.</span>
+                <p>
+                  In Patterns!, it's my experience with detecting and using patterns.
+                </p>
+              </div>
+            </div>
+            <div class="column">
+              <div class="ui segment">
+                <a class="ui red right ribbon label">Avengers</a> <span>The story.</span>
+                <p>
+                  In Avengers: Infinity War, I relay my mindset through each step of the story.
+                </p>
+                <a class="ui green right ribbon label">Problems</a> <span>Real talk.</span>
+                <p>
+                  In Problems, you read who I am, why I am, what I am, and how I am.
+                </p>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        
+        <!--Jesus-->
+        <div id="content_Jesus">
+          
+          <!-- License: This icon is provided by icons8.com as Creative Commons Attribution-NoDerivs 3.0 Unported -->
+          <div class="ui items">
+            <div class="item">
+              <div class="image">
+                <img src="http://www.iconsplace.com/icons/preview/red/cross-256.png">
+              </div>
+              <div class="content">
+                <a class="header">Jesus</a>
+                <div class="meta">
+                  <span>Who spoke the Universe into Existence.</span>
+                </div>
+                <div class="description">
+                  <p>
+                    Dustin West, firsthand experience. Saved, baptized in the Holy Spirit, water
+                    baptized, changed, loved.
+                  </p>
+                </div>
+                <div class="extra">
+                  6/23/18 (original)
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          As I'm writing this, I'm at the table with Jesus. Singing hymns and eating,
+          drinking and enjoying. But God is about to take me to a deeper level. This
+          six weeks wasn't mean to be a lifestyle. It was meant to prepare me; it was
+          meant to change me; it was a place for me to go into and come out of in
+          order to take me deeper.
+          
+          <br>
+          And I walk around and there's so much I could say.
+          <br>
+          I go along with you guys but I know where my home is. I know where I'm going,
+          I know where I'm at. I love you so much and I could say and do so much. But
+          there is never time or situation for me to let you in on all that happens.
+          <br>
+          It all comes down to this: 1) God is still God. 2) God is moving. And 3) I love you guys.
+        </div>
+        
+        <!--Intelligence-->
+        <div id="content_intelligence">
+      
+          <!--Title-->
+          <h2 class="ui center aligned icon header">
+            <i class="circular pencil icon"></i>
+            Intelligence
+          </h2>
+          
+          <h5>
+            <em>
+              If you're right you have a chance to have less than nothing
+              If I'm right I have a guarantee to have more than everything
+            </em>
+          </h5>
+          
+          <!--Intro-->
+          <p class="text-center">
+            Dustin West
+            <br>
+            6/24/18 (Originated 5/10/18)
+          </p>
+          <hr>
+          
+          <!--Basics-->
+          <div class="ui raised segment">
+            <h1 class="ui header">
+              Basics
+            </h1>
+            <hr>
+            <p>
+              <span class="ui sub header">Pre - September/17</span>, I thought my destiny was a matter of my "intelligence"
+              and humans could be gods (little or big 'g').
+            </p>
+            <p>
+              <span class="ui sub header">Present - Jesus</span>, I'm blessed. Jesus has changed my life. I am
+              a new creation, critical thinking is a mindset, IQ is not relevant nor a decision maker. Skills are
+              gifts, minds are lifestyles, I love God and I love people.
+            </p>
+            <p>
+              <span class="ui sub header">The context of "intelligence" I will be using - </span> The superiority of one
+              mind over another mind.
+            </p>
+          </div>
+          
+          <!--Origins-->
+          <h3 class="ui top attached header">
+            Origins
+          </h3>
+          <div class="ui attached segment">
+            <p>
+              God, personally and actually, quickened me specifically about the word "intelligence" as I was praising
+              it in my mind.
+            </p>
+          </div>
+          
+          <!--Women-->
+          <h3 class="ui header">
+            Women
+          </h3>
+          <p>
+            I used to judge everyone as either "intelligent" or not.
+            <br><br>
+            What if a girl wasn't "intelligent"? What if she <strong>was</strong> "intelligent"? (oh no.)
+            Bluntly, is a woman a subject, an equal, or a dominant if she's more or less "intelligent" than you? Neither,
+            we're all humans, we're all minds, blessed and spiritually gifted in one way or another, woman are our
+            helpers, partners, equals, friends, sisters, daughters, mothers, and fellow humans.
+            <br><br>
+            Women are biologically different than men. They think differently, they're naturally original in their
+            evaluation of priority, enhanced in their ability to discern real life problems. With interview and
+            observation, heavy evaluation and time, I've developed guidelines and techniques.
+            <br>
+            <ul>
+              <li>
+                Women: they know what's up. They know what's up in relationships, they know what's up in
+                why you are, and they know what's up with other women.
+              </li>
+              <li>
+                They are naturally dependent
+              </li>
+              <li>
+                They are scientifically worse at video games
+              </li>
+            </ul>
+            One mystery is a woman's relationship with God. I have trouble wrapping my mind around what that is
+            like - I'm a son of God, I have my problems, my mindset, what is a woman + God? I want insight.
+          </p>
+          
+          <hr>
+          
+          <!--Jesus break-->
+          <div class="ui segment">
+            <br>
+            <br>
+            <div class="ui active inverted dimmer">
+              <div class="ui text loader"></div>
+              <br>
+              <br>
+              <br>
+              <br>
+              Jesus Loading
+            </div>
+            <br>
+            <br>
+          </div>
+          
+          <!--Rick and Morty-->
+          <h1 class="text-center ui header">
+            Rick and Morty
+            <a class="ui small inverted secondary button" href="#rick_extras">
+              Extras
+            </a>
+          </h1>
+          <h5>
+            <h4>
+              <u title="An imaginary 'superintelligent' human">Rick</u>
+              <em>
+                is miserable.
+              </em>
+            </h4>
+            <h4>
+              He's depressed, drunken, oppressed, lonely, hopeless, human.
+              <br>
+              The focus is:
+            </h4>
+            <h3>
+              <em>
+                Rick. Is. Miserable.
+              </em>
+            </h3>
+            <strong><u title="a pop culture adult cartoon based around a 'superintelligent' human">Rick and Morty</u></strong>
+            founded itself on 'intelligence'. Rick was a god, without limits, solved all physical struggles
+            with his mental abilities, walked confidently, loved in pop culture.
+            <br>
+            <div class='ui stacked segment'>
+              Rick is actually thought up by <strong>humans</strong>, constructed with specific design decisions,
+              and is focused around 'intelligence'.
+            </div>
+          </h5>
+          <h5 class='noweight'>
+            <strong>If Rick is <u title="Extremely mentally superior">superintelligent</u></strong>,
+            then
+            <ul class='ui list'>
+              <li class='item'>
+                he's either solved all problems and found no hope in which you have none either
+              </li>
+              <div class='w-50 ui horizontal divider'>
+                or
+              </div>
+              <li class='item'>
+                has not solved all problems and therefore you will never solve them either.
+              </li>
+            </ul>
+            Or if his mind is too high for us to understand then He's either
+            <div class='ui list'>
+              <div class='item'>
+                <i class="right triangle icon"></i> God without an answer
+              </div>
+              <div class='item'>
+                <i class="right triangle icon"></i> or God disconnected from us.
+              </div>
+            </div>
+            <br>
+            <strong>Rick isn't intelligent</strong>. Rick doesn't exist, humans are still
+            humans, and either you can pursue your route of "intelligence" in the hope that
+            reality is better than fantasy 
+            <h4 class="ui horizontal divider">
+              Or
+            </h4>
+            <div class='ui raised segment'>
+              <h4 class='ui dividing header'>
+                If there is no God then we are alone.
+              </h4>
+              A Universe where humans depend on humans, learn from humans, trust
+              in humans, because that's all they have.
+              <br>
+              <ol class='ui list'>
+                <li>
+                  Where one is about to die and says 'I made peace. It's fine, I understand,
+                  live life to the fullest' and others follow in his footsteps means there is no hope
+                  and nothing will change because humanity is enough and that's not enough.
+                </li>
+                <li>
+                  A Universe where one dies at rest in his last breath and another can't trust humans and
+                  dies struggling with fear and sadness means there is no hope and nothing can change
+                  because humanity isn't enough.
+                </li>
+                <li>
+                  A universe where each dies their own way, everybody has their own reality yet there is
+                  no God means that reality itself doesn't exist, nothing is right or wrong, and you
+                  better fear what's going to turn reality into Hell because if it happens then it's not
+                  supposed to be wrong anyway.
+                </li>
+              </ol>
+            </div>
+            <h4 class='noweight'>
+              Any Universe without God is Hell and lawlessness and hopelessness and deception.
+              <a href='https://www.biblica.com/bible/niv/1-thessalonians/4/'>1 Thessalonians 4</a> is
+              lightyears ahead of our understanding, "<em>Brothers and sisters, we do not want you to be
+              uninformed about those who sleep in death, so that you do not grieve like the rest of mankind,
+              who have no hope. For we believe that Jesus died and rose again, and so we believe that God
+              will bring with Jesus those who have fallen asleep in him.</em>"
+            </h4>
+            
+            <h4 class='noweight'>
+              You have no other way out. The step between you in your unbelief and you with an eternal
+              Jesus who loves you unconditionally isn't a matter of real or not real because it doesn't change
+              anything, it's a matter of <strong>Is there really hope?</strong> because in a reality where
+              there is nothing to trust in, something to trust in is all you need. And it is. Jesus is more than enough.
+            </h4>
+            
+            <h4 class='ui dividing header'>
+              Doubt isn't the opposite of belief. Pride is the opposite of belief.
+            </h4>
+            <h3>
+              If fantasy is going to take you where I've seen it take people, then you better get into reality.
+              And reality will bring you to God.
+            </h3>
+            
+          </h5>
+          
+          <!--Rick and Morty Extras-->
+          <h2 id="rick_extras" class="ui header">
+            <i class="plus icon"></i>
+            <div class="content">
+              Extras on Rick and Morty
+            </div>
+          </h2>
+          <div class="ui list">
+            <div class="item">
+              <i class="angle right icon"></i>
+              <div class="content">
+                <div class="header">What is the show?</div>
+                <div class="description">The specifics</div>
+                <div class="list">
+                  <div class="item">
+                    <i class="double angle right icon"></i>
+                    <div class="content">
+                      <div class="header">'Intelligence'</div>
+                      The show revolves around the concept of 'intelligence' used in the context
+                      that a human is in all ways superior to another because of a quantifiable
+                      and graspable attribute of their mind. 
+                    </div>
+                  </div>
+                  <div class="item">
+                    <i class="double angle right icon"></i>
+                    <div class="content">
+                      <div class="header">Philosophy</div>
+                      <div class="description">PHD's wrote this</div>
+                      We are presented with classical and modern philisophical problems that are
+                      meant for a target audience. Of which I was one.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <i class="angle right icon"></i>
+              <div class="content">
+                <div class="header">What about me?</div>
+                <div class="description">Great question.</div>
+                <div class='list'>
+                  <div class="item">
+                    <i class="double angle right icon"></i>
+                    <div class="content">
+                      <div class="header">How do I know?</div>
+                      <div class="description">Where did I get this research?</div>
+                      Two places: God. And firsthand experience.
+                    </div>
+                  </div>
+                  <div class="item">
+                    <i class="double angle right icon"></i>
+                    <div class="content">
+                      <div class="header">Do you watch the show?</div>
+                      <div class="description">No.</div>
+                      In 2017 I watched seasons 1-3 to the episode where the alien
+                      blasphemes God's name consistently, purposefully, and frequently
+                      to be funny. By no means was I where I am now, but I did stop watching.
+                      <br>
+                      It's intensely vulgar, full of worldly sorrow, worldly wisdom. It messed
+                      with me in more ways than one.
+                      <br>
+                      I don't watch it.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <br><br>
+          
+          <!--Doctor Who-->
+          <div class="ui steps">
+            <div class="step">
+              <i class="play icon"></i>
+              <div class="content">
+                <div class="title">Rick and Morty</div>
+                <div class="description">Intelligence...</div>
+              </div>
+            </div>
+            <div class="active step">
+              <i class="shuffle icon"></i>
+              <div class="content">
+                <div class="title">Doctor Who</div>
+                <div class="description">Emotions...</div>
+              </div>
+            </div>
+          </div>
+          
+          <form class="ui fluid form">
+            <div class="huge ui pointing below label">
+              Search!
+            </div>
+            <div class="field">
+              <div class="huge fluid ui left icon input">
+                <input type="text" id="doctor_extras_search" value="Doctor Who Extras" placeholder="Search...">
+                <i class="search icon"></i>
+              </div>
+            </div>
+          </form>
+          
+          <div class="ui tall stacked segment">
+            <p>
+              <strong>Doctor</strong> Who goes one step further than Rick and Morty.
+            </p>
+            <p>
+              Further than "intelligence" (concept used outrightly and frequently), Doctor Who touches down
+              that "intelligent" humans must be living a better life. That someone with as great "intelligence" as the
+              Doctor must live in a constant drunkeness of sorrow and pain.
+            </p>
+            <p>
+              Outthinking villains, spreading his symbol, relating to humans, structuring with the same patterns
+              as Rick and Morty, distracting with interest.
+            </p>
+            <p>
+              <strong>Doctor Who</strong> is an idol, more commonly a peacock, less commonly a hero, less commonly a Rick,
+              and even less commonly and at his core, an idol.
+            </p>
+            <p>
+              I've watched the 10th, 11th, and 12th Doctor (Peter Capaldi), every episode.
+            </p>
+            
+            <!--Doctor Who Extras-->
+            <div id="doctor_extras" class="ui raised segment">
+              <h1 class="text-center ui header">
+                Doctor Who Extras:
+              </h1>
+              <p>
+                Rather than constant skewed reality of dark and sad emotion, we live by the renewal of our
+                minds and the realization of the Love and glory of Christ Jesus in a constant state of love
+                and joy that no one can take away. Present and Future tense.
+              </p>
+            </div>
+            
+          </div>
+          
+          <br><br>
+          <hr>
+          <br><br>
+          
+          <!-- 5 Things have changed my life. -->
+          <div class="ui column grid">
+            <div class="column">
+              <div class="ui raised segment">
+                <a class="ui red ribbon label">Certified Jesus</a> <span>Real talk.</span>
+                <h1 class="text-center ui header">
+                  5 Things changed my life:
+                </h1>
+                <ul class="ui list">
+                  <li>
+                    <h3 class="ui header">
+                      The entirety of the Old and New Testament Bible
+                    </h3>
+                  </li>
+                  <li>
+                    <h3 class="ui header">
+                      Baptism of the Holy Spirit
+                    </h3>
+                  </li>
+                  <li>
+                    <h3 class="ui header">
+                      Water baptism
+                    </h3>
+                  </li>
+                  <li>
+                    <h3 class="ui header">
+                      This Purity walk
+                    </h3>
+                  </li>
+                  <li>
+                    <h3 class="ui header">
+                      Specific people in my life
+                    </h3>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        
+        <!--Patterns-->
+        <div id="content_patterns">
+          
+          <!--Title-->
+          <h2 class="ui icon header d-block m-auto">
+            <i class="chart pie icon"></i>
+            <div class="content">
+              Patterns!
+              <div class="sub header">The chapter.</div>
+            </div>
+          </h2>
+          <h2 class="ui sub header">Dustin West</h2>
+          <h2 class="ui sub header">6/22/18 (Originated 5/15/18)</h2>
+
+          <hr>
+          
+          <!--Buttons-->
+          <div class="ui buttons d-block m-auto text-center">
+            <a href="#patterns_chat" class="ui big green inverted button">
+              Chat
+            </a>
+            <a href="#patterns_gaming" class="ui big blue inverted button">
+              Gaming
+            </a>
+          </div>
+          
+          <!--Chat-->
+          <div class="ui piled segment" id="patterns_chat">
+            
+            <!--Title-->
+            <h2 class="ui header text-center">
+              <i class="wechat icon"></i>
+              <div class="content">
+                Chat
+              </div>
+            </h2>
+            
+            <div class="ui divider"></div>
+            
+            <p>
+              I passively or purposefully involve myself with patterns. I change, I know, I understand. I detect,
+              I counter, I put here and do there, avoid this and follow this. What, how, why, when, where,
+              especially who, grabbing information from the little scraps I can get. Critical thinking and patterns
+              follow each other in my renewed and purpose filled mind.
+            </p>
+            
+            <hr>
+            
+            <h3 class="ui header">
+              There are four kinds of chat interactions
+            </h3>
+            
+            <div class="ui list">
+              <div class="item">
+                <i class="arrow alternate circle right outline icon"></i>
+                <div class="content">
+                  <h3 class="ui yellow header">
+                    1-1
+                  </h3>
+                  <div class="description">
+                    <h2 class="ui sub header disabled">
+                      Solo, DM, PM, "Chat"
+                    </h2>
+                    <hr>
+                    Here we understand each other, what we do, who we are, why we are, what we want.
+                    <br>
+                    Here there is less to think about and more to meditate on.
+                  </div>
+                </div>
+              </div>
+              <br>
+              <div class="item">
+                <i class="arrow alternate circle right outline icon"></i>
+                <div class="content">
+                  <h3 class="ui olive header">
+                    1-Many
+                  </h3>
+                  <div class="description">
+                    <h2 class="ui sub header disabled">
+                      Carrying on multiple conversations at once
+                    </h2>
+                    <hr>
+                    When I do this, I switch between conversations. I fluctuate between enough time to think, then
+                    decide and the correct time to carry out the decision.
+                    <br>
+                    I remember who's who and what's what and struggle with making sure I recieve all input.
+                  </div>
+                </div>
+              </div>
+              <br>
+              <div class="item">
+                <i class="arrow alternate circle right outline icon"></i>
+                <div class="content">
+                  <h3 class="ui teal header">
+                    Many-Many
+                  </h3>
+                  <div class="description">
+                    <h2 class="ui sub header disabled">
+                      Chatroom (instant), Forum (delayed)
+                    </h2>
+                    <hr>
+                    A chatroom is like a big binary tree of strings/cord.
+                    <br>
+                    A pull or release is a slice of information that gives us a feel for who is who
+                    in <strong>each other's</strong> eyes (not ours yet).
+                    <br>
+                    A joining and leaving of the chatroom is less frequent and is either a joke or
+                    a split of a member from the cords.
+                    <br>
+                    Acting roughly or getting bored is vital information, because under stress, both
+                    chaos and order come to the tree. Some get displaced below or above where they
+                    best fit and some are revealed as their true-er selves, placed accordingly.
+                    <br>
+                    Lurking can mean a learner or a hanging out wanter, interacting can mean a learner,
+                    a teacher, a friend, or a hanging out wanter, and trading information can mean a
+                    learner or a teacher or a coworker or the like.
+                  </div>
+                </div>
+              </div>
+              <br>
+              <div class="item">
+                <i class="arrow alternate circle right outline icon"></i>
+                <div class="content">
+                  <h3 class="ui grey header">
+                    Many-1
+                  </h3>
+                  <div class="description">
+                    <h2 class="ui sub header disabled">
+                      Experienced by Webinar or Stream hosters or 1-Many hosters, we are the subject of 1-Many
+                    </h2>
+                    <hr>
+                    Rare for any other outcome than say and wait. Whether for learning, attaining, saying.
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <hr>
+            
+            <h3 class="ui header">
+              There are many types of chatters
+            </h3>
+            
+            <h3 class="ui red top attached header">
+              New
+            </h3>
+            <div class="ui attached segment">
+              <p>
+                These people are new to the chat interface. Highly detectable and extremly interesting.
+              </p>
+            </div>
+            
+            <h3 class="ui orange top attached header">
+              Experienced
+            </h3>
+            <div class="ui attached segment">
+              <p>
+                They know what's up, detect your patterns, act with their patterns, and is less of a struggle and
+                more of a problem set between you and they getting each of your agendas.
+              </p>
+            </div>
+            
+            <h3 class="ui green top attached header">
+              Dominants
+            </h3>
+            <div class="ui attached segment">
+              <p>
+                A chatroom type, spoken to often and sometimes speaking to often. Either neutral
+                or negative, either there to help or hang out. Quickly spotted by the lower tier's
+                refusal to act riskily towards them.
+              </p>
+            </div>
+            
+            <h3 class="ui blue top attached header">
+              Middle Tier
+            </h3>
+            <div class="ui attached segment">
+              <p>
+                A chatroom type, speaking to often and sometimes spoken to, mostly by the dominants.
+                Either neutral or negative, there to learn/absorb or hang out. They compose most of
+                the visible part of the chatroom tree, pulling and releasing.
+              </p>
+            </div>
+            
+          </div>
+          
+          <div class="ui segment">
+            <br><br><br>
+            <div class="ui active dimmer">
+              <div class="ui massive text loader">Loading Nonsense</div>
+            </div>
+            <br><br><br>
+          </div>
+          
+          <!--Gaming-->
+          <h1 id="patterns_gaming" class="ui inverted grey block header text-center">
+            &lt;Gaming&gt;
+          </h1>
+          <div class="ui column grid">
+            <div class="column">
+              <div class="ui raised segment">
+                <a class="ui red ribbon label">Overview</a> <span>What patterns?</span>
+                <hr>
+                <p>
+                  A good game for me is one of the many recipes with some ratio between
+                  intensity, strategy, skill, and community. Some games are huge, some
+                  are simple.
+                </p>
+                <p>
+                  Some people's character comes out through their speech. Some comes out through
+                  their play. I record, analyze, meditate on, critically think about, and make
+                  research on these life waves.
+                </p>
+                <ul>
+                  <li>
+                    Click intensity, duration, frequency.
+                  </li>
+                  <li>
+                    Speech content, sureness, accent, quality, audio quality, frequency, quirks.
+                  </li>
+                  <li>
+                    What are they doing? Frequency? Why? Where? How? What tools? Color Scheme?
+                  </li>
+                </ul>
+                <a class="ui blue ribbon label">Examples</a> <span>Explain.</span>
+                <hr>
+                <p>
+                  <strong>Comfortable</strong>: people who are comfortable with the game draw towards quirks and
+                  autonomous gameplay. They cursor movement is smooth and their keyboard presses
+                  are sure, everything ryhtmicly combining into how they play.
+                </p>
+                <p>
+                  <strong>Top</strong>: people who are the best at the game act much like comfortable people except
+                  they think heavily about what they're doing. Their movement suggests that they
+                  adapt, gives off confidence, and exhibits meta and familiar plays.
+                </p>
+                <p>
+                  <strong>New</strong>: people who are new tend to have less quality gaming builds, meaning lower
+                  audio quality, more latency, and more technical difficulties. They tend to be
+                  unsure about their movement, their cursor and avatars shaking around. They
+                  also are usually lucky when they do something outstanding.
+                </p>
+                <p>
+                  <strong>Bad</strong>: people who are experienced with the game but still bad are most of the time
+                  really young or don't have the priority to play the game a bunch. They're almost
+                  new players except with more knowledge.
+                </p>
+              </div>
+            </div>
+          </div>
+          <h1 class="ui inverted grey block header text-center">
+            &lt;/Gaming&gt;
+          </h1>
+
+        </div>
+      
+        <!--Avengers: Infinity War-->
+        <div id="content_avengers">
+        
+          <div>
+            <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+              <h3 class="uk-card-title">
+                Avengers: Infinity War
+              </h3>
+              <p>
+                Me reading this would lessen the experience of the movie. Act accordingly.
+              </p>
+            </div>
+          </div>
+        
+          <br>
+        
+        <div class="uk-card uk-card-secondary uk-width-1-2@m">
+          <div class="uk-card-header">
+            <div class="uk-grid-small uk-flex-middle" uk-grid>
+              <div class="uk-width-expand">
+                <h3 class="uk-card-title uk-margin-remove-bottom">
+                  Dustin West
+                </h3>
+                <p class="uk-text-meta uk-margin-remove-top">
+                  6/22/18 (Originated 5/18/18)
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <h2 class="ui header">
+          <i class="play icon"></i>
+          <div class="content">
+            Introduction
+            <hr>
+            <div class="sub header">
+              This was supposed to be the greatest marvel story ever. Yes.
+            </div>
+          </div>
+        </h2>
+        
+        <h2 class="ui right aligned header">
+          <div class="content">
+            Technology <i class="settings icon"></i>
+            <hr>
+            <div class="sub header">
+              The movie started with Thanos's great combat and I thought of him
+              studying and thinking over fights in order to gain his skills.
+              It transformed with new tech, new dynamics, and Tony Stark, I thought about
+              Operating Systems, does Tony have a different Operating System for every
+              device? what programming language does he use?
+            </div>
+          </div>
+        </h2>
+        
+        <h2 class="ui center aligned header">
+          <div class="content">
+            <i class="recycle icon"></i> Critical Thinking
+            <hr>
+            <div class="sub header">
+              I then thought about strategies and critical thinking. How to save Doctor Strange
+              from a deadlocker who could penetrate him with shards? The enemy probably set up
+              things so if he died, doctor strange would also die, and so it's a hostage
+              with a gun to his head, how do we save him? Peter Parker made a good guess
+              that disctracting the enemy instead of killing him, would work. It did.
+            </div>
+          </div>
+        </h2>
+        
+        <h2 class="ui header">
+          <i class="space shuttle icon"></i>
+          <div class="content">
+            Nothing is defined, anything can be possible
+            <hr>
+            <div class="sub header">
+              The movie moved on to a bigger universe. What if Tony Stark was pushing himself shamelessly
+              his whole life for this because one day things will really matter? I wanted to come
+              home and make a critical thinking course on <em>"humanity is spaceships and
+              technology. Operating Systems, design, practical knowledge, nothing is
+              preschool math class where you know you can solve the problem and everything
+              is safe and your skills are within bounds. Nothing is sure, solve these problems,
+              maybe, do your best."</em> course that would get people into the real knowledge
+              and awakening that nothing is pre-defined or pre-known by man so that we
+              would begin to question. I can't be solving problems that I know I can solve,
+              I have to be solving problems that no one knows what will happen.
+            </div>
+          </div>
+        </h2>
+        
+        <h2 class="ui right aligned header">
+          <div class="content">
+            Start of the Real Story <i class="book icon"></i>
+            <hr>
+            <div class="sub header">
+              The movie progressed to Thanos's real intentions coming out, and also I was
+              still passively studying combat and imagining what if doctor strange surrounded himself
+              in a box of portals so nothing could get to him except from 6 places in existence.
+              Thanos's experience and study were being revealed, as well as the soul stone
+              foreshadowing (I don't do foreshadowing, never able to pick it up until the
+              first time I really thought critically about something, this movie) that
+              he would pay everything. I was now thinking about philosophy.
+            </div>
+          </div>
+        </h2>
+
+        <h2 class="ui center aligned header">
+          <div class="content">
+            <i class="random icon"></i> Philosophy
+            <hr>
+            <div class="sub header">
+              Now here is Iron Man, Spider Man, and the Guardian Gang (except the green one)
+              fighting Thanos. The true definition of Thanos's plan comes out: Kill half
+              of the people in the universe at random. But here is our heroes trying
+              to preserve the universe in it's current state, which is free will.
+              Who is right? No one is right. They are all not God, the true God. When the
+              gauntlet is almost off Thanos, it's a quiet struggle of two sides who both
+              think they are doing the right thing, and everything is at stake for everyone.
+              Forever.
+            </div>
+          </div>
+        </h2>
+
+        <h2 class="ui header">
+          <i class="hourglass half icon"></i>
+          <div class="content">
+            "End Game"
+            <hr>
+            <div class="sub header">
+              Now the movie progresses on to the "end game". The heroes give everything. Blood, knives,
+              battle, crying, dirt, screams, black monsters. Thanos defeats the heroes, then Thor kills him,
+              but not actually. Thanos activates the gauntlet. Thanos and Gommorah walking on water under
+              a tagoda and Thanos has accomplished what he thought was right and has admitted to paying
+              everything that mattered to him.
+            </div>
+          </div>
+        </h2>
+        
+        <h1 class="ui header">
+          Punchline
+        </h1>
+        <h3 class="noweight">
+          The punchline. Half of everyone in the universe dies at random.
+          The closest people to everyone - dies. by withering away. in front of them.
+          Peter Parker realizes he is going to die, he sees his flesh fading into ashes,
+          and with seconds to live, begs Iron Man to save him because he has no God to trust in.
+          No hope, no knowledge, no trust, no purpose. He says, "No, no, please, please save me, please"
+          to a mere human that he knows deep down in his soul will never be able to save him and that
+          stares him in his face unable to do anything. The movie ends.
+        </h3>
+        
+        <hr>
+        
+        <h2 class="text-center ui header">
+          Further:
+        </h2>
+        
+        <ul class="ui list">
+          <h4 class="item">
+            Did Doctor Strange, in his visions, accept Thanos's point of view and give him the stone because
+            he also thought it was the best choice?
+          </h4>
+          <h4 class="item">
+            How will the Marvel universe continue?
+          </h4>
+          <h4 class="item">
+            I know this is not Jesus's second coming, the Resurrection.
+          </h4>
+        </ul>
+  
+      </div>
+      
+        <!--Problems-->
+        <div id="content_problems">
+          
+          <div class="ui items">
+            <div class="item">
+              <div class="image">
+                <img src="/pictures/newme.jpg">
+              </div>
+              <div class="content">
+                <h1 class="header">Problems</h1>
+                <div class="meta">
+                  <h2 class="ui sub header disabled">
+                    - Dustin West
+                    <br>
+                    6/22/18 (Originated 6/3/18)
+                  </h2>
+                </div>
+                <hr>
+                <div class="description">
+                  <h4 class="noweight">
+                    I have a Love relationship with Jesus. I don't need anything else.
+                  </h4>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <hr>
+          
+          <h3 class="ui header">
+            "I wake up and go to sleep with my problems, unless I don't"
+          </h3>
+          <h5 class="noweight">
+            I wake up and go to sleep with my problems, unless I don't, every time God changes my life. I get up and reload,
+            refresh, who am I, why, how. Before I'm asleep I'm storing, memorizing, thinking, contemplating, listening.
+            <br>
+            But there are times when God decides to move, forget these things, we're going forward, son. Amen.
+          </h5>
+          
+          <h3 class="ui header">
+            Different mindset? Different problems.
+          </h3>
+          <h5 class="noweight">
+            I've got so many problems to solve. Different mindset? Different problems. I know my problems well, the solutions all
+            lie with Jesus. Every time. Women, friends, brothers, sisters, parents, projects, people, leaders, peers, work, health,
+            rest, sleep. Going over, making up conversations, iterating, thinking, adding, learning.
+            <br>
+            I have to do this. I shouldn't do that. Remember ___? I don't want to. Observe them. Solve this. Remember that.
+          </h5>
+          
+          <h3 class="ui header">
+            I need less me and more Jesus
+          </h3>
+          <h5 class="noweight">
+            But I don't remember. My mind with it's mindset is a constantly working, God-created, God-gloryfying gift and
+            responsibility that I operate and love. No matter how many problems I solve, I transform with more. There is no forward
+            without change. These hold in our current, human incompleteness as described by Paul (1 Corinthians 13:8-13). I've got
+            so many questions that have real answers, I'm me, I want to change, I am, and I need less me and more Jesus.
+          </h5>
+        
+          <hr>
+        
+        </div>
+        
+      </div>
+
+  </div>
+</div>
+
+<% include ../partials/footer.ejs %>
